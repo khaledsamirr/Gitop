@@ -1,0 +1,105 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  color: #999;
+  margin: 50px 0px;
+}
+.footer img {
+  width: 24px;
+  height: 24px;
+}
+.footer .container {
+  width: 1400px;
+}
+.footer .container .top {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 960px) {
+  .footer .container .top {
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 10px;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 480px) {
+  .footer .container .top {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+    font-size: 12px;
+  }
+}
+.footer .container .top .item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer .container .top .item h2 {
+  font-size: 16px;
+  color: #555;
+}
+.footer .container .top .item span {
+  font-weight: 300;
+}
+.footer .container hr {
+  margin: 50px 0px;
+  height: 0;
+  border: 1px solid var(--lightgray);
+}
+.footer .container .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 960px) {
+  .footer .container .bottom {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 480px) {
+  .footer .container .bottom {
+    flex-direction: column;
+  }
+}
+.footer .container .bottom .left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer .container .bottom .left span {
+  font-size: 14px;
+}
+.footer .container .bottom .right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+@media screen and (max-width: 960px) {
+  .footer .container .bottom .right {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 480px) {
+  .footer .container .bottom .right {
+    flex-direction: column;
+  }
+}
+.footer .container .bottom .right .social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer .container .bottom .right .links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.footer .container .bottom .right .links .link {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}/*# sourceMappingURL=Footer.css.map */

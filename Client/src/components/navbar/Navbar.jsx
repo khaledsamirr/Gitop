@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import "./Navbar.scss"
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import newRequest from '../../utils/newRequest';
 
 function Navbar() {
+
+    const navigate= useNavigate();
+
     const [active,setActive]=useState(false);
 
     const [open, setOpen]=useState(false);
@@ -20,13 +24,17 @@ function Navbar() {
         }
     },[])
 
-    const currentUser={
-        id:1,
-        username:"John Doe",
-        isSeller:true,
-        img:"https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg"
-    }
+    const currentUser= JSON.parse(localStorage.getItem("currentUser"));
 
+    const handleLogout =async()=>{
+        try{
+            await newRequest.post("/auth/logout");
+            localStorage.setItem("currentUser",null)
+            navigate("/")
+        }catch(err){
+           console.log(err) 
+        }
+    }
   return (
     <div className={active||pathname!=="/"?"navbar active":"navbar"}>
         <div className="container">
@@ -44,7 +52,7 @@ function Navbar() {
             {!currentUser&& <button>Join</button>}
             {currentUser && (
                 <div className="user" onClick={()=>setOpen(!open)}>
-                    <img src={currentUser?.img} alt="" />
+                    <img src={currentUser?.img || "/img/noavatar.jpg"} alt="" />
                     <span>{currentUser?.username}</span>
 
                     { open&& (
@@ -58,7 +66,7 @@ function Navbar() {
                         )}
                         <Link className="link" to="/orders">Orders</Link>
                         <Link className="link" to="/messages">Messages</Link >
-                        <Link className="link" to="">Logout</Link >
+                        <Link className="link"onClick={handleLogout}>Logout</Link >
                     </div>
                     )
                     

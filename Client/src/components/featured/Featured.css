@@ -1,0 +1,122 @@
+.featured {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary);
+  color: white;
+}
+.featured .container {
+  width: 1400px;
+  display: flex;
+  align-items: center;
+}
+.featured .container .left {
+  margin: 0px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 2;
+}
+@media screen and (max-width: 960px) {
+  .featured .container .left {
+    margin: 0;
+    padding: 0px 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .featured .container .left {
+    margin: 0;
+  }
+}
+.featured .container .left h1 {
+  font-size: 50px;
+}
+@media screen and (max-width: 480px) {
+  .featured .container .left h1 {
+    font-size: 32px;
+  }
+}
+.featured .container .left .search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 5px;
+}
+@media screen and (max-width: 480px) {
+  .featured .container .left .search {
+    width: -moz-min-content;
+    width: min-content;
+  }
+}
+.featured .container .left .search .searchInput {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.featured .container .left .search .searchInput img {
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+}
+.featured .container .left .search .searchInput input {
+  border: none;
+  outline: none;
+}
+.featured .container .left .search button {
+  width: 120px;
+  height: 50px;
+  border: none;
+  background-color: var(--btn-primary);
+  color: white;
+  cursor: pointer;
+}
+@media screen and (max-width: 960px) {
+  .featured .container .left .search button {
+    width: -moz-max-content;
+    width: max-content;
+  }
+}
+.featured .container .left .popular {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media screen and (max-width: 960px) {
+  .featured .container .left .popular {
+    flex-wrap: wrap;
+  }
+}
+.featured .container .left .popular button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.featured .container .right {
+  flex: 1;
+  height: 100%;
+}
+@media screen and (max-width: 960px) {
+  .featured .container .right {
+    display: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .featured .container .right {
+    display: none;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .featured .container .right {
+    display: none;
+  }
+}
+.featured .container .right img {
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}/*# sourceMappingURL=Featured.css.map */

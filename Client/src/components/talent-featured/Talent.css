@@ -1,0 +1,78 @@
+.talent {
+  background-color: #f1fdf7;
+  display: flex;
+  justify-content: center;
+  padding: 100px 0px;
+}
+.talent .container {
+  display: flex;
+  width: 1400px;
+  align-items: center;
+  gap: 150px;
+}
+@media screen and (max-width: 1000px) {
+  .talent .container {
+    flex-direction: column-reverse;
+  }
+}
+.talent .container .item {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.talent .container .item:first-child {
+  flex: 2;
+}
+@media screen and (max-width: 960px) {
+  .talent .container .item:first-child {
+    max-width: 500px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .talent .container .item:first-child {
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+}
+.talent .container .item:last-child {
+  flex: 3;
+  max-width: 700px;
+}
+@media screen and (max-width: 960px) {
+  .talent .container .item:last-child {
+    max-width: 500px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .talent .container .item:last-child {
+    max-width: 300px;
+  }
+}
+.talent .container .item h1 {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.talent .container .item p {
+  font-size: 18px;
+  color: gray;
+  line-height: 25px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+.talent .container .item .title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: gray;
+  font-size: 18px;
+}
+.talent .container .item .title img {
+  width: 24px;
+  height: 24px;
+}/*# sourceMappingURL=Talent.css.map */
