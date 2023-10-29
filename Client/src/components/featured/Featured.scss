@@ -1,0 +1,126 @@
+@import "../../responsive.scss";
+.featured{
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary);
+    color: white;
+    .container{
+        width:1400px;
+        display: flex;
+        align-items: center;
+        
+        .left{
+
+            margin: 0px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            flex: 2;
+            @include respond(tab-port){
+                margin: 0;
+                padding: 0px 10px;
+
+                
+             }
+             @include respond(phone){
+                margin: 0;
+                
+
+                
+             }
+            h1{
+                font-size: 50px;
+                
+                @include respond(phone){
+                    font-size: 32px;
+                    
+                 }
+          
+            }
+            .search{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: white;
+                border-radius: 5px;
+                @include respond(phone){
+                   width: min-content;
+                    
+                }
+              
+
+                .searchInput{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    img{
+                        width: 20px;
+                        height: 20px;
+                        margin: 10px;
+                    }   
+                    input{
+                        border: none;
+                        outline: none;
+
+                    }     
+                }
+
+                button{
+                    width: 120px;
+                    height: 50px;
+                    border: none;
+                    background-color: var(--btn-primary);
+                    color: white;
+                    cursor: pointer;
+                    @include respond(tab-port){
+                        width: max-content;
+                         
+                     }
+                   
+                }
+            }
+            .popular{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                @include respond(tab-port){
+                  flex-wrap: wrap;
+                   
+                }
+                span{
+
+                }
+                button{
+                    background-color: transparent;
+                    color: white;
+                    border: 1px solid white;
+                    padding: 5px 10px;
+                    font-size: 14px;
+                    border-radius: 20px;
+                    cursor: pointer;
+
+                }
+            }
+        }
+        .right{
+            
+            @include respond(tab-port){
+                display: none;
+             }
+             @include respond(phone){
+                 display: none;
+             }
+             @include respond(mini-desktop){
+                 display: none;
+             }
+            flex: 1;
+            height: 100%;
+            img{
+                height: 100%;
+                object-fit: contain;
+            }
+
+        }
+    }
+}

@@ -1,0 +1,122 @@
+@import "../../responsive.scss";
+
+.navbar{
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary);
+    color: white;
+    top: 0;
+    z-index: 99999999;
+
+    &.active{
+        background-color: white;
+        color: black;
+    }
+    .container{
+
+        @include respond(desktop){
+            width:1400px;
+        }
+       
+       
+        display: flex; 
+        background-color: transparent;
+        justify-content: space-between;
+        padding: 20px 0px;
+        gap: 50px;
+        .logo{
+            font-size: 34px;
+            font-weight: bold;
+            .text{
+
+            }
+        }
+        .links{
+            @include respond(tab-port){
+               display: none;
+            }
+            @include respond(mobile){
+                display: none;
+            }
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            font-weight: 500;
+            
+            .user{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                cursor: pointer;
+                position: relative;
+
+                .options{
+                    position: absolute;
+                    top: 50px;
+                    right: 0;
+                    padding: 20px;
+                    background-color:white;
+                    border: 1px solid var(--lightgray);
+                    border-radius: 10px;
+                    display: flex;
+                    gap: 10px;
+                    color:gray;
+                    font-weight: 300;
+                    width: 200px;
+                    flex-direction: column;
+                }
+                img{
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+
+            span{
+
+            }
+            button{
+                padding: 10px 20px;
+                border-radius: 5px;
+                color:white;
+                cursor: pointer;
+                background-color: transparent;
+                border: 1px solid white;
+                
+                &:hover{
+                    background-color: var(--btn-primary);
+                    border-color: var(--btn-primary);
+                }
+
+                
+            }
+        }
+    }
+    hr{
+        width: 100%;
+        height: 0;
+        border: 0.5 solid var(--lightgray);
+    }
+    .menu{
+    
+        @include respond(tab-port){
+            display: none;
+           }
+        @include respond(mobile){
+            display: none;
+        }
+        @include respond(mini-desktop){
+            display: none;
+            
+        }
+        width:1400px;
+        padding: 10px 0px;
+        display: flex;
+        justify-content: space-between;
+        font-weight: 300;
+        color: gray;
+    }
+}

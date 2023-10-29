@@ -1,0 +1,24 @@
+:root {
+  font-family: Poppins, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+
+  --red:#7D0000;
+  --lightgray: rgb(226, 226, 226);
+  --primary:#0d084d;
+  --btn-primary:#0050CB;
+  --btn-sec:#F83005;
+
+
+}
+
+a {
+  text-decoration: none;
+  color: inherit ;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}

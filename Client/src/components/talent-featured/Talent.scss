@@ -1,0 +1,77 @@
+@import "../../responsive.scss";
+.talent{
+    background-color: #f1fdf7;
+    display: flex;
+    justify-content: center;
+    padding: 100px 0px;
+
+    .container{
+        display: flex;
+    
+        @include respond(mini-desktop){
+            flex-direction: column-reverse;
+            
+        }
+        width:1400px;
+        align-items: center;
+        gap: 150px;
+        .item{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            &:first-child{
+                flex:2;
+                @include respond(tab-port){
+                    max-width: 500px;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
+                    text-align: center;
+                }
+                @include respond(phone){
+                  
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
+                    
+                }
+            }
+            &:last-child{
+                flex:3;
+                max-width: 700px;
+                @include respond(tab-port){
+                    max-width: 500px;
+                }
+                @include respond(phone){
+                    max-width: 300px;
+                }
+
+            }
+            h1{
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+            p{
+                font-size: 18px;
+                color: gray;
+                line-height: 25px;
+                letter-spacing: 1px;
+                margin: 0;
+            }
+            .title{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-weight:500;
+                color: gray;
+                font-size: 18px;
+
+                img{
+                    width: 24px;
+                    height: 24px;
+                }
+
+            }
+        }
+    }
+}

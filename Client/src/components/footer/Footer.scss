@@ -1,0 +1,103 @@
+@import "../../responsive.scss";
+.footer{
+    display: flex;
+    justify-content: center;
+    color: #999;
+    margin: 50px 0px;
+    img{
+        width: 24px;
+        height: 24px;
+    }
+    .container{
+        width: 1400px;
+        .top{
+            display: flex;
+            
+            @include respond(tab-port){
+                flex-wrap: wrap;
+                gap: 30px;
+                padding: 10px;
+                justify-content: flex-start;
+               
+            }
+            @include respond(phone){
+                flex-wrap: wrap;
+                gap: 20px;
+                padding: 10px;
+                font-size: 12px;
+               
+            }
+            justify-content: space-between;
+            .item{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h2{
+                    font-size: 16px;
+                    color:#555;
+
+                }
+                span{
+                    font-weight: 300;
+                }
+            }
+
+        }
+
+        hr{
+            margin: 50px 0px;
+            height: 0;
+            border: 1px solid var(--lightgray);
+        }
+        .bottom{
+            @include respond(tab-port){
+                flex-direction: column;
+            }
+            @include respond(phone){
+                flex-direction: column;
+            }
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .left{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                span{
+                    font-size: 14px;
+                }
+            }
+            .right{
+                @include respond(tab-port){
+                    flex-direction: column;
+                }
+                @include respond(phone){
+                    flex-direction: column;
+                }
+                display: flex;
+                align-items: center;
+                gap: 30px;
+                .social{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                }
+                .links{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 20px;
+                    
+                    .link{
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                }
+                
+            }
+        }
+    }
+}
