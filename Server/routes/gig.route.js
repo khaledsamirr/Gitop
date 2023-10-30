@@ -1,8 +1,14 @@
 import express from 'express'
-import { deleteUser } from '../controllers/user.controller.js';
+import {verifyToken} from '../middleware/jwt.js'
+import { createGig, deleteGig, getAllGigs, getGig } from '../controllers/gig.controller.js';
+
 
 const router= express.Router()
 
-router.get("/test",deleteUser);
+router.post("/",verifyToken,createGig);
+router.delete("/:id",verifyToken,deleteGig);
+router.get("/:id",verifyToken,getGig);
+router.get("/",verifyToken,getAllGigs);
+
 
 export default router;

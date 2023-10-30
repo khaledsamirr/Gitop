@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Login.scss";
 import newRequest from "../../utils/newRequest";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function Login() {
+export default function Login() {
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -23,37 +24,26 @@ function Login() {
 
   return (
     <div className="login">
-      <div className="logo">
-        <h1>Gitop</h1>
-        <p>Explore the most <span style={{fontStyle:"italic"}}>flexible</span> freelancing platform recently</p>
+      <div className="top">
+        <div className="wrapper">
+          <h1 className="logo">Gitop</h1>
+        </div>
       </div>
-      
-      <div className="form">
-          
+      <div className="container">
+      {error && <span className="error">{error}</span>}
         <form onSubmit={handleSubmit}>
-          <h1>Sign in</h1>
-          
-          <label htmlFor="">Username</label>
-          <input
-            name="username"
-            type="text"
-            placeholder="Enter your username"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-
-          <label htmlFor="">Password</label>
-          <input
-            name="Enter your password"
-            placeholder="password"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            />
-          <button type="submit">Login</button>
-          {error && <span>{error}</span>}
+          <h1>Sign In</h1>
+          <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
+          <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+          <button className="loginButton">Sign In</button>
+          <span>
+            New to Gitop? <Link to="/register"> <b>Sign up now.</b> </Link>
+          </span>
+          <small>
+            Explore the most flexible freelancing platform recently.
+          </small>
         </form>
-    </div>
+      </div>
     </div>
   );
 }
-
-export default Login;

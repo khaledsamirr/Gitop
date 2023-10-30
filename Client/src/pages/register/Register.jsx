@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Register.scss";
-import newRequest from"../../utils/newRequest.js"
+import newRequest from "../../utils/newRequest";
+import { Link, useNavigate } from "react-router-dom";
 import upload from "../../utils/upload.js"
-import { useNavigate } from "react-router-dom";
 
 
-function Register() {
+export default function Register() {
+
+  const[open,setOpen]=useState(false);
+
   const [file, setFile] = useState(null);
   const [user, setUser] = useState({
     username: "",
@@ -27,6 +30,7 @@ function Register() {
   
 
   const handleSeller = (e) => {
+    setOpen(!open)
     setUser((prev) => {
       return { ...prev, isSeller: e.target.checked };
     });
@@ -47,11 +51,15 @@ function Register() {
       console.log(err);
     }
   };
+
   return (
     <div className="register">
-      <div className="form">
-        
+      <div className="top">
+        <div className="wrapper">
+          <h1 className="logo">Gitop</h1>
+        </div>
       </div>
+      <div className="container">
       <form onSubmit={handleSubmit}>
         <div className="left">
           <h1>Create a new account</h1>
@@ -80,24 +88,30 @@ function Register() {
             placeholder="ex: Egypt"
             onChange={handleChange}
           />
-          <button type="submit">Register</button>
+         
         </div>
         <div className="right">
           <h1>I want to become a seller</h1>
           <div className="toggle">
             <label htmlFor="">Activate the seller account</label>
             <label className="switch">
-              <input type="checkbox" onChange={handleSeller} />
+              <input type="checkbox" onChange={handleSeller}  />
               <span className="slider round"></span>
             </label>
           </div>
+          {
+            open&&
+           <> 
+           <h4>
+            Please Enter these two additional fields 
+           </h4>
           <label htmlFor="">Phone Number</label>
           <input
             name="phone"
             type="text"
             placeholder="+1 234 567 89"
             onChange={handleChange}
-          />
+            />
           <label htmlFor="">Description</label>
           <textarea
             placeholder="A short description about yourself"
@@ -106,11 +120,16 @@ function Register() {
             cols="30"
             rows="10"
             onChange={handleChange}
-          ></textarea>
+            ></textarea>
+            </>
+          }
+           <button type="submit">Register</button>
+           <span>
+            Already have an account? <Link to="/login"> <b>Sign in.</b> </Link>
+          </span>
         </div>
       </form>
+      </div>
     </div>
   );
 }
-
-export default Register;
