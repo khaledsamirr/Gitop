@@ -29,6 +29,9 @@ const orderSchema=new Schema({
    payment:{
     type:String,
     required:true
+   },
+   img:{
+    type:String
    }
 },{
     timestamps: true

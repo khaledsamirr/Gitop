@@ -26,7 +26,9 @@ export default function Login() {
     <div className="login">
       <div className="top">
         <div className="wrapper">
-          <h1 className="logo">Gitop</h1>
+          <Link to="/">
+            <h1 className="logo">Gitop</h1>
+          </Link>
         </div>
       </div>
       <div className="container">

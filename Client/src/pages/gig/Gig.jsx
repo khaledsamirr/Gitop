@@ -25,27 +25,30 @@ function Gig() {
     })
   })
 
+  const userId= data?.userId;
+
   const {isLoading:isLoadingUser,error:errorUser,data:dataUser}=useQuery({
     queryKey:['user'],
-    queryFn:()=> newRequest.get(`/users/${data.userId}`).then(res=>{
+    queryFn:()=> newRequest.get(`/users/${userId}`).then(res=>{
       return res.data;
-    })
+    }),
+    enabled: !!userId
   })
   return (
     <div className="gig">
      {isLoading? "Loading..":error?"Something went wrong!":
       <div className="container">
         <div className="left">
-          <span className="breadcrumbs">{"Liverr > Graphics & Design >"}</span>
+          <span className="breadcrumbs">{"Gitop > Graphics & Design >"}</span>
           <h1>{data.title}</h1>
           {isLoadingUser?"Loading..":error?"Something went wrong!":(
             <div className="user">
             <img
               className="pp"
-              src={dataUser.img||"/img/noavatar.jpg"}
+              src={dataUser?.img||"/img/noavatar.jpg"}
               alt=""
             />
-            <span>{dataUser.username}</span>
+            <span>{dataUser?.username}</span>
             {!isNaN (data.totalStars/data.starNumber)&&
                 (
                 <div className="stars">
@@ -73,15 +76,15 @@ function Gig() {
           </p>
           <div className="seller">
             <h2>About The Seller</h2>
-            {isLoadingUser?"Loading..":error?"Something went wrong!":(
+            {isLoadingUser?"Loading..":errorUser?"Something went wrong!":(
 
               <div className="user">
               <img
-                src={dataUser.img||"/img/noavatar.jpg"}
+                src={dataUser?.img||"/img/noavatar.jpg"}
                 alt=""
                 />
               <div className="info">
-                <span>{dataUser.username}</span>
+                <span>{dataUser?.username}</span>
                 {!isNaN (data.totalStars/data.starNumber)&&
                 (
                   <div className="stars">
@@ -98,7 +101,7 @@ function Gig() {
               <div className="items">
                 <div className="item">
                   <span className="title">From</span>
-                  <span className="desc">{dataUser.country}</span>
+                  <span className="desc">{dataUser?.country}</span>
                 </div>
                 <div className="item">
                   <span className="title">Member since</span>
@@ -119,7 +122,7 @@ function Gig() {
               </div>
               <hr />
               <p>
-                {dataUser.desc}
+                {dataUser?.desc}
               </p>
             </div>
           </div>

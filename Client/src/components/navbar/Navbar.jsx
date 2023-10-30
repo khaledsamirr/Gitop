@@ -42,14 +42,14 @@ function Navbar() {
             <div className="logo">
                 <span className='text'>Gitop</span>
             </div>  
-            </Link>
+        </Link>
         <div className="links">
             <span>Business</span>
             <span>Explore</span>
             <span>English</span>
-            <span>Sign in</span>
-            {!currentUser?.isSeller && <span>Become a Seller</span>}
-            {!currentUser&& <button>Join</button>}
+       
+            {!currentUser &&<Link to="/login"><span>Sign in</span></Link>}
+            {!currentUser&& <Link to="/register"><button>Join</button></Link>}
             {currentUser && (
                 <div className="user" onClick={()=>setOpen(!open)}>
                     <img src={currentUser?.img || "/img/noavatar.jpg"} alt="" />
