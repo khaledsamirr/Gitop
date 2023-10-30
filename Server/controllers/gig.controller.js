@@ -44,13 +44,18 @@ export const getAllGigs=async(req,res,next)=>{
     const query= req.query;
     const filters={
         ...(query.category&&{category:query.category}),
-        ...(query.min || query.max && {price: {...(query.min&&{$gt:query.min}), ...(query.max&&{$gt:query.max})},}),
+        ...((query.min || query.max) && {
+            price: {
+              ...(query.min && { $gt: query.min }),
+              ...(query.max && { $lt: query.max }),
+            },
+          }),
         ...(query.search &&{title:{$regex:query.search,$options:"i"}} ),
         ...(query.userId&&{userId:query.userId}),
     }
 
     try{
-        const gigs= await Gig.find(filters);
+        const gigs = await Gig.find(filters).sort({ [query.sort]: -1 });
         if(!gigs){ return next(createError(404,"No Gigs at all")) }
 
         res.status(200).json(gigs);

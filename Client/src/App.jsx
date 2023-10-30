@@ -13,10 +13,14 @@ import Message from "./pages/message/Message"
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 
+import { QueryClient,QueryClientProvider } from "@tanstack/react-query";
+
 
 
 
 function App() {
+
+  const queryClient=new QueryClient();
 
   const Layout=()=>{
     return (
@@ -80,7 +84,9 @@ function App() {
 
   return(
     <>
-      <RouterProvider router={router}/>
+      <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router}/>
+       </QueryClientProvider>
     </>
     )
 
