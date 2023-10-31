@@ -34,7 +34,20 @@
           input,
           select,
           textarea {
+            font-family: "Poppins",sans-serif;
             padding: 20px;
+          }
+
+          .images{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            .imagesInputs{
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+
+            }
           }
   
           button {
@@ -45,6 +58,34 @@
             font-size: 18px;
             background-color: var(--btn-primary);
             cursor: pointer;
+          }
+
+          .add{
+            display: flex;
+            justify-content: space-between;
+            input{
+              width: 80%;
+            }
+          }
+          .addedFeatures{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+
+            button{
+              display: flex;
+              align-items: center;
+              height: 40px;
+              font-weight: 400;
+              font-size: 12px;
+              background: transparent;
+              color: red;
+              border: 1px solid red ;
+              border-radius: 10px;
+              gap: 5px;
+            }
+
           }
         }
       }
