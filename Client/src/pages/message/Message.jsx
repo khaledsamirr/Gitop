@@ -19,6 +19,27 @@ const Message = () => {
       }),
   });
 
+
+  const {isLoading:userisLoading,error:userError,data:userData } = useQuery({
+    queryKey: ["userImg"],
+    queryFn: () =>
+      newRequest.get(`/users/${currentUser._id}`).then((res) => {
+        return res.data;
+      }),
+  });
+
+ const users=id.split('-');
+ const secondUser= users[0]!==currentUser._id?users[0]:users[1];
+
+const {isLoading:userisLoading2, error:userError2,data:userData2 } = useQuery({
+    queryKey: ["userImg2"],
+    queryFn: () =>
+      newRequest.get(`/users/${secondUser}`).then((res) => {
+        return res.data;
+      }),
+  });
+
+
   const mutation = useMutation({
     mutationFn: (message) => {
       return newRequest.post(`/messages`,message);
@@ -44,16 +65,29 @@ const Message = () => {
 
      <div className="container">
         <span className="breadcrumbs">
-          <Link to="/messages">Messages</Link> {"> John Doe >"}
+          <Link to="/messages">Messages</Link> {`>  ${userisLoading2?"loading":userError2?"loading.":userData2.username}`}
         </span>
         <div className="messages">
           {data.map((m)=>(
             
+
             <div className={m.userId === currentUser._id ? "owner item" : "item"} key={m._id}>
-            <img
-              src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            {
+              
+              m.userId===currentUser._id
+              ?
+              
+                <img
+                src={userisLoading?"loading":userError?"loading":(userData.img || "/img/noavatar.jpg")}
+                alt=""
+                />
+              :
+              <img
+              src={userisLoading2?"loading":userError2?"loading":(userData2?.img || "/img/noavatar.jpg")}
               alt=""
               />
+                 
+            }
             <p>
                 {m.msg}
             </p>

@@ -1,18 +1,15 @@
 import React from "react";
 import "./Gig.scss";
-import Carousel from "react-multi-carousel";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 import Reviews from "../../components/reviews/Reviews";
+import 'swiper/css';
+import 'swiper/css/pagination';
 
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 1,
-    slidesToSlide:1,
-  },
-};
+import { Pagination} from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+
 
 function Gig() {
 
@@ -59,16 +56,38 @@ function Gig() {
                   <span>{!isNaN(data.totalStars/data.starNumber)?Math.round(data.totalStars/data.starNumber):0}</span>
                 </div>)}
           </div>)}
-          <Carousel responsive={responsive} items={1} slidesToSlide={1} infinite={true} itemClass="carousel-container">
-            {data.images.map((img)=>(
-                <img
-                key={img}
-                src={img}
-                alt=""
-                />
-            )
-            )} 
-          </Carousel>
+          <Swiper
+              breakpoints={{
+              // when window width is >= 640px
+              480: {
+                width: 480,
+                slidesPerView: 1,
+              },
+              // when window width is >= 768px
+              960: {
+                width: 960,
+                slidesPerView: 1,
+              },
+            }}
+              direction='horizontal'
+              
+              modules={[Pagination]}
+              pagination={{ clickable: true ,}}
+              spaceBetween={40}
+              loop={true}
+              slidesPerView={1}
+          >
+          {
+            data?.images?.map(card=>(
+              <div key={card.id} className="swiperCard">
+                  <SwiperSlide> <img
+                    src={card}
+                    alt=""
+                    /></SwiperSlide>
+              </div>
+            ))
+          }
+        </Swiper>
           
           <h2>About This Gig</h2>
           <p>
@@ -93,7 +112,7 @@ function Gig() {
                     ))}
                   <span>{!isNaN(data.totalStars/data.starNumber)?Math.round(data.totalStars/data.starNumber):0}</span>
                 </div>)}
-                <button>Contact Me</button>
+               
               </div>
             </div>
             )}
@@ -110,10 +129,6 @@ function Gig() {
                 <div className="item">
                   <span className="title">Avg. response time</span>
                   <span className="desc">4 hours</span>
-                </div>
-                <div className="item">
-                  <span className="title">Last delivery</span>
-                  <span className="desc">1 day</span>
                 </div>
                 <div className="item">
                   <span className="title">Languages</span>

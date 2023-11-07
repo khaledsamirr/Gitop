@@ -1,0 +1,23 @@
+.payment{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+
+    .paybtn{
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        height: 40px;
+        width: 200px;
+        font-size: 16px;
+        background-color: var(--btn-primary);
+        color: white;
+        font-family: "Poppins",sans-serif;
+        font-weight: 500;
+        border: none;
+        border-radius: 10px;
+
+    }
+}

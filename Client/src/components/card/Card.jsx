@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Card({item}) {
   return (
-    <Link to="/gigs?category=graphic design">
+    <Link to={`/gigs?category=${item?.category}`}>
         <div className='card'>
             <div className="container">
                 <img src={item?.img} alt="" />

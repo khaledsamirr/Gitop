@@ -34,11 +34,16 @@
             }
         }
         .links{
-            @include respond(tab-port){
-               display: none;
-            }
-            @include respond(mobile){
-                display: none;
+            
+           
+           
+            .l{
+                @include respond(phone){
+                    display: none;
+                }
+                display: flex;
+                gap: 24px;
+               
             }
             display: flex;
             gap: 24px;
@@ -46,6 +51,8 @@
             font-weight: 500;
             
             .user{
+            
+           
                 display: flex;
                 align-items: center;
                 gap: 10px;
@@ -76,9 +83,11 @@
             }
 
             span{
-
+            
             }
             button{
+               
+              
                 padding: 10px 20px;
                 border-radius: 5px;
                 color:white;
@@ -109,6 +118,10 @@
             display: none;
         }
         @include respond(mini-desktop){
+            display: none;
+            
+        }
+        @include respond(tab-land){
             display: none;
             
         }

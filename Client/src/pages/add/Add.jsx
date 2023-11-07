@@ -4,20 +4,22 @@ import upload from "../../utils/upload.js"
 import {gigReducer,INITIAL_STATE} from "../../reducers/gigReducer.js"
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import newRequest from "../../utils/newRequest.js"
+
 
 
 const Add = () => {
-  const [cover,setCover]=useState(undefined)
-  const [images,setImages]=useState([])
+  const [coverUpload,setCoverUpload]=useState(undefined)
+  const [imagesUpload,setImagesUpload]=useState([])
   const [uploading,setUploading]=useState(false)
 
   const [state,dispatch]=useReducer(gigReducer,INITIAL_STATE);
 
   const handleChange=e=>{
     dispatch({type:"CHANGE_INPUT",payload:{name:e.target.name,value:e.target.value}})
+    console.log(e)
   }
 
-  console.log(state?.features)
 
   const handleFeature=e=>{
     e.preventDefault()
@@ -40,6 +42,9 @@ const Add = () => {
       onSuccess:()=>{
         queryClient.invalidateQueries(['myGigs'])
       },
+      onError:(err)=>{
+        console.log(err)
+      }
     })
 
   
@@ -49,24 +54,29 @@ const Add = () => {
     navigate("/myGigs")
 
   }
+
+  console.log(state)
+
   
   const handleUpload=async()=>{
     setUploading(true);
     try{
-      const coverr= await upload(cover);
-      const imagess= await Promise.all(
-        [...images].map(async(i)=>{
+      const cover= await upload(coverUpload);
+      const images= await Promise.all(
+        [...imagesUpload].map(async(i)=>{
           const url= await upload(i)
           return url;
         })
       )
       setUploading(false);
-      dispatch({type:"ADD_IMAGES",payload:{cover:coverr,images:imagess}})
+      dispatch({type:"ADD_IMAGES",payload:{cover,images}})
     }catch(err){
       console.log(err)
     }
 
   }
+
+ 
 
   return (
     <div className="add">
@@ -83,24 +93,29 @@ const Add = () => {
             />
             <label htmlFor="">Category</label>
             <select name="category" id="cats" onChange={handleChange}>
-              <option value="design">Design</option>
-              <option value="web">Web Development</option>
-              <option value="animation">Animation</option>
-              <option value="music">Music</option>
+              <option value="design">Graphics & Design</option>
+              <option value="video">Video & Animation</option>
+              <option value="writing">Writing & Translation</option>
+              <option value="AI">AI Services</option>
+              <option value="marketing">Digtial Marketing</option>
+              <option value="music">Music & Audio</option>
+              <option value="programming">Programming & Tech</option>
+              <option value="business">Business</option>
+              <option value="lifestyle">Lifestyle</option>
             </select>
             <div className="images">
               <div className="imagesInputs">
 
                 <label htmlFor="">Cover Image</label>
-                <input type="file" onChange={(e)=>setCover(e.target.files[0])}/>
-                <label htmlFor="" onChange={(e)=>setImages(e.target.files)}>Upload Images</label>
-                <input type="file" multiple />
+                <input type="file" onChange={(e)=>setCoverUpload(e.target.files[0])}/>
+                <label htmlFor="">Upload Images</label>
+                <input type="file" multiple onChange={(e)=>setImagesUpload(e.target.files)}/>
               </div>
               <button onClick={handleUpload}>{uploading?"uploading..":"Upload"}</button>
             </div>
             <label htmlFor="">Description</label>
             <textarea name="desc" id="" placeholder="Brief descriptions to introduce your service to customers" cols="0" rows="16" onChange={handleChange}></textarea>
-            <button onClick={handleSubmit}>Create</button>
+           
           </div>
           <div className="details">
             <label htmlFor="">Service Title</label>
@@ -128,6 +143,7 @@ const Add = () => {
             </div>
             <label htmlFor="">Price</label>
             <input type="number" onChange={handleChange} name="price"/>
+            <button onClick={handleSubmit}>Create</button>
           </div>
         </div>
       </div>

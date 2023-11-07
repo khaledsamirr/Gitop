@@ -69,6 +69,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 20px;
   
         textarea {
           width: 80%;
@@ -86,7 +87,7 @@
           border: none;
           border-radius: 10px;
           cursor: pointer;
-          width: 100px;
+          width: 20%;
         }
       }
     }

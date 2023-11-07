@@ -1,5 +1,7 @@
 import React, {useEffect,useState} from "react"
 
+import "./CheckoutForm.scss"
+
 import {
     PaymentElement,
     LinkAuthenticationElement,
@@ -85,14 +87,14 @@ const CheckoutForm=()=>{
       };
 
     return (
-        <form id="payment-form" onSubmit={handleSubmit}>
+        <form id="payment-form" onSubmit={handleSubmit} className="payment">
         <LinkAuthenticationElement
           id="link-authentication-element"
           onChange={(e) => setEmail(e.target.value)}
         />
         <PaymentElement id="payment-element" options={paymentElementOptions} />
-        <button disabled={isLoading || !stripe || !elements} id="submit">
-          <span id="button-text">
+        <button disabled={isLoading || !stripe || !elements} id="submit" className="paybtn">
+          <span id="button-text" className="payspan">
             {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
           </span>
         </button>

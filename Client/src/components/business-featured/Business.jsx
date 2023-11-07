@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Business.scss"
+import { Link } from 'react-router-dom'
 
 function Business() {
   return (
@@ -23,7 +24,7 @@ function Business() {
             <img src="./img/check.png" alt="" />
             Manage teamwork and boost productivity with one powerful workspace
           </div>
-          <button>Explore Gitop Business</button>
+          <Link to="/business"><button >Explore Gitop Business</button></Link>
       </div>
       <div className="right">
           <img src="./img/manager.png" alt=""/>

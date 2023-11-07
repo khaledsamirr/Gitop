@@ -1,39 +1,47 @@
 import React from 'react'
-import Carousel from "react-multi-carousel";
+import { Swiper, SwiperSlide } from 'swiper/react';
 import "./slide.scss"
+import ProjectCard from '../project-card/ProjectCard';
+import Card from '../card/Card';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
-import "react-multi-carousel/lib/styles.css";
+import { Pagination} from 'swiper/modules';
 
-const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-    slidesToSlide:5,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1400 },
-    items: 5,
-    slidesToSlide:5,
-  },
-  tablet: {
-    breakpoint: { max: 1400, min: 480 },
-    items: 3,
-    slidesToSlide:3,
-  },
-  mobile: {
-    breakpoint: { max: 480, min: 0 },
-    slidesToSlide:1,
-    items: 1
-  }
-};
-
-function Slide({children}) {
+function Slide({cards,isProject}) {
   return (
     <div className='slide'>
         <div className="container">
-            <Carousel itemClass="carousel-container" partialVisbile={false} responsive={responsive}  infinite={true}>
-                {children}
-            </Carousel>
+        <Swiper
+          breakpoints={{
+          0:{
+            width:220,
+            slidesPerView:1,
+          },
+          480: {
+            width: 300,
+            slidesPerView: 1,
+          },
+          960: {
+            width: 960,
+            slidesPerView: 3,
+          },
+         }}
+          direction='horizontal'
+          
+          modules={[Pagination]}
+          pagination={{ clickable: true ,}}
+      
+          loop={true}
+          slidesPerView={1}
+       >{
+        cards?.map(card=>(
+          <div key={card.id} className="swiperCard">
+              <SwiperSlide>{!isProject?<Card item={card}/>:<ProjectCard item={card}/>}</SwiperSlide>
+          </div>
+        ))
+       }
+    </Swiper>
         </div>
     </div>
   )

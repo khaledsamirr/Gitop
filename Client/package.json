@@ -20,7 +20,8 @@
     "react-dom": "^18.2.0",
     "react-multi-carousel": "^2.8.4",
     "react-router-dom": "^6.17.0",
-    "sass": "^1.69.5"
+    "sass": "^1.69.5",
+    "swiper": "^11.0.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

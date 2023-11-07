@@ -1,40 +1,57 @@
 export const cards=[
     {
         id:1,
-        title: "AI Artists",
-        desc: "Add talent to AI",
-        img: "https://images.pexels.com/photos/2036656/pexels-photo-2036656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        title: "Logo Design",
+        desc: "Graphics & Design",
+        img: "https://images.pexels.com/photos/2290786/pexels-photo-2290786.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        category:"design"
     },
     {
         id:2,
-        title: "AI Artists2",
-        desc: "Add talent to AI",
-        img: "https://images.pexels.com/photos/2036656/pexels-photo-2036656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        title: "Motion graphic",
+        desc: "Video & Animation",
+        img: "https://images.pexels.com/photos/3385662/pexels-photo-3385662.jpeg?auto=compress&cs=tinysrgb&w=600",
+        category:"video"
     },
     {
         id:3,
-        title: "AI Artists3",
-        desc: "Add talent to AI",
-        img: "https://images.pexels.com/photos/2036656/pexels-photo-2036656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        title: "English Translation",
+        desc: "Writing & Translation",
+        img: "https://images.pexels.com/photos/18539744/pexels-photo-18539744/free-photo-of-still-life-with-a-white-book-and-yellow-leaf-on-a-stump.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        category:"writing"
     },
     {
         id:4,
-        title: "AI Artists4",
-        desc: "Add talent to AI",
-        img: "https://images.pexels.com/photos/2036656/pexels-photo-2036656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        title: "Genrative AI",
+        desc: "AI Services",
+        img: "https://images.pexels.com/photos/10377281/pexels-photo-10377281.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        category:"AI"
     },
     {
         id:5,
-        title: "AI Artists5",
-        desc: "Add talent to AI",
-        img:"https://images.pexels.com/photos/2036656/pexels-photo-2036656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+        title: "Marketing",
+        desc: "Digital Marketing",
+        img:"https://images.pexels.com/photos/6476808/pexels-photo-6476808.jpeg?auto=compress&cs=tinysrgb&w=600" 
         },
     {
         id:6,
-        title: "AI Artists6",
-        desc: "Add talent to AI",
-        img: "https://images.pexels.com/photos/2036656/pexels-photo-2036656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-    }
+        title: "Wordpress website",
+        desc: "Programming & Tech",
+        img: "https://images.pexels.com/photos/16129877/pexels-photo-16129877/free-photo-of-open-laptop-web-design-development-on-bed.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      id:7,
+      title: "Fintech Specialist",
+      desc: "Business",
+      img: "https://images.pexels.com/photos/7873573/pexels-photo-7873573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+   },
+   {
+    id:8,
+    title: "Photography",
+    desc: "Lifestyle",
+    img: "https://images.pexels.com/photos/3014019/pexels-photo-3014019.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    
 ]
 
 

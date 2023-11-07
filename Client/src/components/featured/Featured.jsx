@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Featured.scss'
-import { useNavigate } from 'react-router-dom'
+import {Link, useNavigate } from 'react-router-dom'
 
 function Featured() {
     const [input,setInput]=useState("")
@@ -8,6 +8,9 @@ function Featured() {
 
     const handleSearch=()=>{
         navigate(`/gigs?search=${input}`)
+    }
+    const handleFeature=(search)=>{
+        navigate(`/gigs?search=${search}`)
     }
   return (
     <div className='featured'>
@@ -23,10 +26,10 @@ function Featured() {
                 </div>
                 <div className="popular">
                     <span>Popular:</span>
-                    <button>Web Design</button>
-                    <button>Wordpress</button>
-                    <button>Logo Design</button>
-                    <button>Poster Design</button>
+                    <Link to="/gigs?category=writing"><button  >Translation</button></Link>
+                    <Link to="/gigs?category=programming"><button >Wordpress</button></Link>
+                    <Link to="/gigs?category=design"><button >Logo Design</button></Link>
+                    <Link to="/gigs?category=marketing"><button >Digital Marketing</button></Link>
                 </div>
             </div>
             <div className="right">

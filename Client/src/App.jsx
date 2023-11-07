@@ -16,6 +16,8 @@ import Register from "./pages/register/Register";
 import { QueryClient,QueryClientProvider } from "@tanstack/react-query";
 import Pay from "./pages/pay/Pay";
 import Success from "./pages/success/Success";
+import BusinessPage from "./pages/business-page/BusinessPage";
+import Ad from "./components/ad/Ad";
 
 
 
@@ -27,6 +29,7 @@ function App() {
   const Layout=()=>{
     return (
       <div className="app">
+        <Ad/>
         <Navbar/>
         <Outlet/>
         <Footer/>
@@ -88,6 +91,10 @@ function App() {
     {
       path:"/register",
       element:<Register/>,
+    },
+    {
+      path:"/business",
+      element:<BusinessPage/>
     }
 
   ])

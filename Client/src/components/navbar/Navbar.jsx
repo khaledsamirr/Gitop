@@ -44,10 +44,12 @@ function Navbar() {
             </div>  
         </Link>
         <div className="links">
-            <span>Business</span>
-            <span>Explore</span>
-            <span>English</span>
-       
+            
+            <div className="l">
+                <Link to="/gigs"><span className='linkBtn'>Explore</span></Link>
+                <Link to="/business"><span className='linkBtn'>Business</span></Link>
+            </div>
+            
             {!currentUser &&<Link to="/login"><span>Sign in</span></Link>}
             {!currentUser&& <Link to="/register"><button>Join</button></Link>}
             {currentUser && (
@@ -59,7 +61,7 @@ function Navbar() {
                         <div className="options">
                         {currentUser?.isSeller &&(
                             <>
-                                <Link className="link" to="/myGigs">Gigs</Link >
+                                <Link className="link" to="/myGigs">My Gigs</Link >
                                 <Link className="link" to="/add">Add New Gig</Link>
                         
                             </>
@@ -80,15 +82,15 @@ function Navbar() {
         <>
         <hr /> 
         <div className="menu">
-            <Link className="link" to="/"> Graphics & Design</Link>
-            <Link className="link" to="/"> Viedo & Animation</Link>
-            <Link className="link" to="/"> Writing & Translation</Link>
-            <Link className="link" to="/"> AI Services</Link>
-            <Link className="link" to="/"> Digital Marketing</Link>
-            <Link className="link" to="/"> Music & Audio</Link>
-            <Link className="link" to="/"> Programming & Tech</Link>
-            <Link className="link" to="/"> Business</Link>
-            <Link className="link" to="/"> Lifestyle</Link>
+            <Link className="link" to="/gigs?category=design"> Graphics & Design</Link>
+            <Link className="link" to="/gigs?category=video"> Video & Animation</Link>
+            <Link className="link" to="/gigs?category=writing"> Writing & Translation</Link>
+            <Link className="link" to="/gigs?category=AI"> AI Services</Link>
+            <Link className="link" to="/gigs?category=marketing"> Digital Marketing</Link>
+            <Link className="link" to="/gigs?category=music"> Music & Audio</Link>
+            <Link className="link" to="/gigs?category=programming"> Programming & Tech</Link>
+            <Link className="link" to="/gigs?category=business"> Business</Link>
+            <Link className="link" to="/gigs?category=lifestyle"> Lifestyle</Link>
             
             
 

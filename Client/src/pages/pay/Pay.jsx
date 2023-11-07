@@ -35,11 +35,16 @@ function Pay() {
 
   return (
     <div className="pay">
+      <h1>Payment</h1>
+        <p>Enter your credit card information to complete the process.  </p>
+      <div className="container">
+        
       {clientSecret&&(
         <Elements options={options} stripe={stripePromise}>
           <CheckoutForm/>
         </Elements>
       )}
+      </div>
     </div>
   )
 }

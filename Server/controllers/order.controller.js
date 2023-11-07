@@ -54,7 +54,7 @@ export const payment= async (req,res,next)=>{
 
 export const confirm=async(req,res,next)=>{
     try{
-        const orders=await Order.findOneAndUpdate(
+        const order=await Order.findOneAndUpdate(
             {
                 payment: req.body.payment
             },{
@@ -64,7 +64,7 @@ export const confirm=async(req,res,next)=>{
             }
         )
 
-        res.status(200).send("Order has been confirmed!")
+        res.status(200).json(order)
     }catch(err){
         next(err);
     }
