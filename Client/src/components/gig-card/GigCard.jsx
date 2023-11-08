@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Gigcard.scss"
+import "./GigCard.scss"
 import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
