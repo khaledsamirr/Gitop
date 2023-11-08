@@ -16,12 +16,9 @@ const app= express()
 dotenv.config();
 
 
-var corsOptions = {
-  credentials: true,
-  origin:'*'
-}
 
-app.use(cors(corsOptions));
+
+app.use(cors({origin:"*",credentials:true}));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
