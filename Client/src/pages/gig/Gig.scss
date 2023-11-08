@@ -17,21 +17,22 @@
         flex-direction: column;
        align-items: start;
        gap: 10px;
+       width: auto;
         
       }
       
   
       .left {
-        width:800px;
+        max-width: 800px;
         @include respond(mini-desktop){
-          width: 500px
+        
           
         }
         @include respond(phone){
-          width: 300px
+      
           
         }
-        flex: 2;
+        
         display: flex;
         flex-direction: column;
         gap: 20px;

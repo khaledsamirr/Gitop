@@ -58,6 +58,12 @@ function Gig() {
           </div>)}
           <Swiper
               breakpoints={{
+
+              1:{
+                width:100,
+                slidesPerView:1
+
+              },
               // when window width is >= 640px
               480: {
                 width: 480,
@@ -68,12 +74,17 @@ function Gig() {
                 width: 960,
                 slidesPerView: 1,
               },
+              1200:{
+                width:900,
+                slidesPerView:1,
+                spaceBetween:10
+              }
             }}
               direction='horizontal'
               
               modules={[Pagination]}
               pagination={{ clickable: true ,}}
-              spaceBetween={40}
+            
               loop={true}
               slidesPerView={1}
           >
