@@ -29,6 +29,8 @@
           color: gray;
           font-size: 18px;
         }
+    
+  
   
         .info,
         .details {
@@ -47,7 +49,7 @@
          
             
           }
-
+      
           .images{
             display: flex;
             align-items: center;
@@ -70,7 +72,19 @@
               border-radius: 5px;
             }
           }
+          
+          .error{
+
   
+            color: red;
+            padding: 5px 0px;
+         
+            border-radius: 10px;
+            font-size: 14px;
+            
+           
+            
+          }
           button {
             border: none;
             padding: 20px;

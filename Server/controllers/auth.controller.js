@@ -6,6 +6,17 @@ import createError from "../utils/createError.js";
 export const register=async(req,res,next)=>{
 
     try{
+        if(req.body.password===""||req.body.country===""||req.body.username===""||req.body.email===""){
+            return res.status(400).send("Please fill in all the form!")
+        }
+        if(req.body.password.length<8){
+            return res.status(400).send("Password length can't be less than 8 characters")
+        }
+        if(req.body.isSeller===true){
+            if(req.body.desc===""||req.body.phone===""){
+                return res.status(400).send("As a seller you must enter your phone number and short description about yourself.")
+            }
+        }
         const hash= bcrypt.hashSync(req.body.password,5);
         const newUser= new User({
             ...req.body,

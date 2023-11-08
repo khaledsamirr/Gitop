@@ -23,8 +23,9 @@ function Slide({cards,isProject}) {
             slidesPerView: 1,
           },
           960: {
-            width: 960,
-            slidesPerView: 3,
+            width: 600,
+            slidesPerView: 2,
+            spaceBetween:2
           },
          }}
           direction='horizontal'

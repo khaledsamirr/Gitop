@@ -8,6 +8,7 @@ import upload from "../../utils/upload.js"
 export default function Register() {
 
   const[open,setOpen]=useState(false);
+  const [error, setError] = useState(null);
 
   const [file, setFile] = useState(null);
   const [user, setUser] = useState({
@@ -38,17 +39,16 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = await upload(file);
-    console.log(url)
+    const url = file? await upload(file):"";
 
     try {
-      await newRequest.post("/auth/register", {
+     const res= await newRequest.post("/auth/register", {
         ...user,
         img: url,
       });
-      navigate("/")
+      navigate("/login")
     } catch (err) {
-      console.log(err);
+      setError(err.response.data);
     }
   };
 
@@ -56,7 +56,7 @@ export default function Register() {
     <div className="register">
       <div className="top">
         <div className="wrapper">
-          <h1 className="logo">Gitop</h1>
+          <Link to="/"><h1 className="logo">Gitop</h1></Link>
         </div>
       </div>
       <div className="container">
@@ -124,6 +124,7 @@ export default function Register() {
             </>
           }
            <button type="submit">Register</button>
+           {error && <span className="error">{error}</span>}
            <span>
             Already have an account? <Link to="/login"> <b>Sign in.</b> </Link>
           </span>

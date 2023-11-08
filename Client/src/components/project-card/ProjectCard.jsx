@@ -49,10 +49,10 @@ function ProjectCard({item}) {
               <img src={item?.cover} alt="" />
             </div>
               <div className='info'>
-                <img src={data.img||"/img/noavatar.jpg"} alt="" />
+                <img src={item.images[0]||"/img/default-img.jpg"} alt="" />
                 <div className="texts">
                   <h2>{selectCategory(item?.category)}</h2>
-                  <span>{data.username}</span>
+                  <span>{item.shortTitle}</span>
                 </div>
               </div>
   

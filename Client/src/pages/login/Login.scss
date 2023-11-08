@@ -12,13 +12,13 @@
 
   .top {
     .wrapper {
-      padding: 20px 50px;
+      padding: 20px 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
 
       .logo {
-        font-size: 40px;
+        font-size: 32px;
         color: white;
         margin: 0;
         
@@ -40,24 +40,26 @@
 
     .error{
 
-      background-color: var(--btn-sec);
-      color: white;
-      padding: 20px;
-      width: 200px;
-      text-align: center  ;
-      font-size: 16px;
+  
+      color: red;
+      padding: 5px 0px;
+   
+      border-radius: 10px;
+      font-size: 14px;
+      
+     
       
     }
 
     form {
-      width: 300px;
-      height: 350px;
+      
       padding: 30px;
       border-radius: 5px;
+      gap: 15px;
       background-color: var(--main-color);
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
 
       input {
         font-family: "Poppins",sans-serif ; 

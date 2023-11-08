@@ -51,7 +51,7 @@
             
   
             img {
-              display: block;
+             
               max-height: 500px;
               @include respond(mini-desktop){
                 max-height: 300px;

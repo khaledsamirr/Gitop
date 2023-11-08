@@ -12,6 +12,7 @@ const Add = () => {
   const [coverUpload,setCoverUpload]=useState(undefined)
   const [imagesUpload,setImagesUpload]=useState([])
   const [uploading,setUploading]=useState(false)
+  const [error, setError] = useState(null);
 
   const [state,dispatch]=useReducer(gigReducer,INITIAL_STATE);
 
@@ -41,21 +42,21 @@ const Add = () => {
       },
       onSuccess:()=>{
         queryClient.invalidateQueries(['myGigs'])
+        navigate("/myGigs")
       },
       onError:(err)=>{
-        console.log(err)
+        setError(err.response.data);
       }
     })
 
   
   const handleSubmit=async(e)=>{
-    e.preventDefault()
-    mutation.mutate(state)
-    navigate("/myGigs")
+    
+      e.preventDefault()
+      mutation.mutate(state)
 
   }
 
-  console.log(state)
 
   
   const handleUpload=async()=>{
@@ -144,7 +145,9 @@ const Add = () => {
             <label htmlFor="">Price</label>
             <input type="number" onChange={handleChange} name="price"/>
             <button onClick={handleSubmit}>Create</button>
+            {error && <span className="error">{error}</span>}
           </div>
+       
         </div>
       </div>
     </div>
