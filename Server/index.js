@@ -15,16 +15,10 @@ import cookieParser from "cookie-parser"
 const app= express()
 dotenv.config();
 
-var whitelist = ['http://localhost:5174', /** other domains if any */ ]
+
 var corsOptions = {
   credentials: true,
-  origin: function(origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
+  origin:'*'
 }
 
 app.use(cors(corsOptions));
