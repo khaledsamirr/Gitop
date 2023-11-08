@@ -1,6 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import "./slide.scss"
+import "./Slide.scss"
 import ProjectCard from '../project-card/ProjectCard';
 import Card from '../card/Card';
 import 'swiper/css';
