@@ -14,7 +14,7 @@ import cookieParser from "cookie-parser"
 
 const app= express()
 dotenv.config();
-app.use(cors({ origin: "https://https://gitop.vercel.app/", credentials: true }));
+app.use(cors({ origin: "https://gitop.vercel.app/", credentials: true }));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
