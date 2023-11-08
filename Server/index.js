@@ -14,7 +14,7 @@ import cookieParser from "cookie-parser"
 
 const app= express()
 dotenv.config();
-app.use(cors({ origin: "https://gitop.vercel.app/", credentials: true }));
+app.use(cors({ origin: "http://localhost:5174", credentials: true }));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
@@ -43,6 +43,16 @@ app.use((err,req,res,next)=>{
     const errorMessage=err.message || "Something went wrong!"
     return res.status(errorStatus).send(errorMessage);
 })
+
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept'
+    );
+    next();
+});
 
 app.listen(8800,()=>{
     connect()
