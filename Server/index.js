@@ -14,7 +14,21 @@ import cookieParser from "cookie-parser"
 
 const app= express()
 dotenv.config();
-app.use(cors({ origin: "http://localhost:5174", credentials: true }));
+
+var whitelist = ['http://localhost:5174', /** other domains if any */ ]
+var corsOptions = {
+  credentials: true,
+  origin: function(origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+app.use(cors(corsOptions));
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
@@ -38,11 +52,7 @@ app.use("/api/orders",orderRoute);
 app.use("/api/gigs",gigRoute);
 app.use("/api/messages",messageRoute);
 
-app.use((err,req,res,next)=>{
-    const errorStatus=err.status ||500
-    const errorMessage=err.message || "Something went wrong!"
-    return res.status(errorStatus).send(errorMessage);
-})
+
 
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
