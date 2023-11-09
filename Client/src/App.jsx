@@ -1,6 +1,6 @@
 import React from "react"
 import Navbar from './components/navbar/Navbar'
-import { createBrowserRouter,RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter,RouterProvider, Outlet, Navigate } from "react-router-dom";
 import Footer from "./components/footer/Footer";
 import Home from "./pages/home/Home";
 import Gigs from "./pages/gigs/Gigs";
@@ -25,6 +25,14 @@ import Ad from "./components/ad/Ad";
 function App() {
 
   const queryClient=new QueryClient();
+
+  const RequireAuth=({children})=>{
+    if(localStorage.getItem("currentUser")){
+      return <Navigate to="/"/>
+    }
+   
+    return children;
+  }
 
   const Layout=()=>{
     return (
@@ -86,11 +94,11 @@ function App() {
     },
     {
       path:"/login",
-      element:<Login/>,
+      element:(<RequireAuth><Login/></RequireAuth>),
     },
     {
       path:"/register",
-      element:<Register/>,
+      element:(<RequireAuth><Register/></RequireAuth>),
     },
     {
       path:"/business",
