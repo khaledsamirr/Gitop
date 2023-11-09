@@ -18,7 +18,16 @@ export default function Login() {
       localStorage.setItem("currentUser", JSON.stringify(res.data));
       navigate("/")
     } catch (err) {
-      setError(err.response.data);
+      if(err.response.status===404){
+        setError("User not found!")
+      }
+      if(err.response.status===400){
+        setError("Username or password is wrong!");
+      }
+      if(err.response.status===500){
+        setError("Something went wrong, Please try again later!");
+      }
+      
     }
   };
 

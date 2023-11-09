@@ -1,5 +1,6 @@
 import React from 'react'
 import './Footer.scss'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -8,22 +9,19 @@ function Footer() {
         <div className="top">
           <div className="item">
               <h2>Categories</h2>
-              <span>Graphics & Design</span>
-              <span>Digital Marketing</span>
-              <span>Writing & Translation</span>
-              <span>Video & Animation</span>
-              <span>Music & Audio</span>
-              <span>Programming & Tech</span>
-              <span>Data</span>
-              <span>Business</span>
-              <span>Lifestyle</span>
-              <span>Photography</span>
-              <span>Sitemap</span>
+              <Link to="/gigs?category=design"><span>Graphics & Design</span></Link>
+              <Link to="/gigs?category=marketing"><span>Digital Marketing</span></Link>
+              <Link to="/gigs?category=writing"><span>Writing & Translation</span></Link>
+              <Link to="/gigs?category=video"><span>Video & Animation</span></Link>
+              <Link to="/gigs?category=music"><span>Music & Audio</span></Link>
+              <Link to="/gigs?category=programming"><span>Programming & Tech</span></Link>
+              <Link to="/gigs?category=AI"><span>AI Services</span></Link>
+              <Link to="/gigs?category=business"><span>Business</span></Link>
+              <Link to="/gigs?category=lifestyle"><span>Photography</span></Link>
             </div>
             <div className="item">
               <h2>About</h2>
               <span>Press & News</span>
-              <span>Partnerships</span>
               <span>Privacy Policy</span>
               <span>Terms of Service</span>
               <span>Intellectual Property Claims</span>
@@ -33,7 +31,6 @@ function Footer() {
             <div className="item">
               <h2>Support</h2>
               <span>Help & Support</span>
-              <span>Trust & Safety</span>
               <span>Selling on Gitop</span>
               <span>Buying on Gitop</span>
             </div>
@@ -43,26 +40,16 @@ function Footer() {
               <span>Community hub</span>
               <span>Forum</span>
               <span>Events</span>
-              <span>Blog</span>
-              <span>Influencers</span>
-              <span>Affiliates</span>
-              <span>Podcast</span>
               <span>Invite a Friend</span>
               <span>Become a Seller</span>
               <span>Community Standards</span>
             </div>
             <div className="item">
               <h2>More From Gitop</h2>
-              <span>Gitop Business</span>
+              <Link to="/business"><span>Gitop Business</span></Link>
               <span>Gitop Pro</span>
-              <span>Gitop Logo Maker</span>
               <span>Gitop Guides</span>
-              <span>Get Inspired</span>
-              <span>Gitop Select</span>
-              <span>ClearVoice</span>
-              <span>Gitop Workspace</span>
               <span>Learn</span>
-              <span>Working Not Working</span>
             </div>
         </div>
         <hr/>
@@ -75,17 +62,12 @@ function Footer() {
             <div className="social">
                 <img src="/img/facebook.png" alt="" />
                 <img src="/img/linkedin.png" alt="" />
-                <img src="/img/pinterest.png" alt="" />
                 <img src="/img/instagram.png" alt="" />
               </div>
               <div className="links">
               <div className="link">
                 <img src="/img/language.png" alt="" />
                 <span>English</span>
-              </div>
-              <div className="link">
-                <img src="/img/coin.png" alt="" />
-                <span>USD</span>
               </div>
               <img src="/img/accessibility.png" alt="" />
               </div>

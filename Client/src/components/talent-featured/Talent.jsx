@@ -15,21 +15,21 @@ function Talent() {
 
          <div className="title">
           <img src="./img/check.png" alt="" />
-          The best for every budget
+          Fixed Price Jobs
         </div>
-         <p> Find high-quality services at every price, No hourly rates, just project-pased pricing.</p>
+         <p> you're getting paid a fixed price for the entire gig regardless of how many hours it takes to complete the job.</p>
 
          <div className="title">
           <img src="./img/check.png" alt="" />
-          The best for every budget
+          Gitop Showcase
         </div>
-         <p> Find high-quality services at every price, No hourly rates, just project-pased pricing.</p>
+         <p>  Employers can easily and quickly find the best suitable freelancers according to their project's requirements.</p>
 
          <div className="title">
           <img src="./img/check.png" alt="" />
-          The best for every budget
+          Zero fees
         </div>
-         <p> Find high-quality services at every price, No hourly rates, just project-pased pricing.</p>
+         <p> For freelancers and clients "Zero Fees" benefit help both sides with no additional fees on the project price.</p>
       </div>
       <div className="item">
           <video src="./img/video.mp4" controls/>
