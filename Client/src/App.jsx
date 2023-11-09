@@ -27,7 +27,7 @@ function App() {
   const queryClient=new QueryClient();
 
   const RequireAuth=({children})=>{
-    if(localStorage.getItem("currentUser")){
+    if(localStorage.getItem("currentUser")!==null){
       return <Navigate to="/"/>
     }
    
